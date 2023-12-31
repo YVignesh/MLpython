@@ -21,8 +21,8 @@ res = smartApi.getProfile(refreshToken)
 smartApi.generateToken(refreshToken)
 def hist_data(symboltoken,interval,fromdate,todate):
     try:
-        fromdate = fromdate + " 09:00"
-        todate = todate + " 16:00"
+        #fromdate = fromdate + " 09:00"
+        #todate = todate + " 16:00"
         symboltoken = str(symboltoken)
         historicParam={
         "exchange": "NSE",
@@ -92,8 +92,6 @@ class StockTradingEnvironment:
         self.trade_time = None  # To record time of trade
         self.stop_loss_percent = stop_loss_percent
         self.trade_book = pd.DataFrame(columns=['timestamp', 'share', 'action', 'price', 'quantity', 'profit_loss', 'balance'])
-        if os.path.exists('output.csv'):
-            os.remove('output.csv')
 
     def reset(self):
         self.current_step = 0
